@@ -1,0 +1,40 @@
+<!--
+  @description       : 
+  @author            : pmartinez@cloudcoachers.com
+  @group             : 
+  @last modified on  : 09-17-2020
+  @last modified by  : pmartinez@cloudcoachers.com
+  Modifications Log 
+  Ver   Date         Author                        Modification
+  1.0   09-17-2020   pmartinez@cloudcoachers.com   Initial Version
+-->
+<template>
+	<template if:true={contact}>
+		<lightning-layout vertical-align="center">
+			<lightning-layout-item padding="arround-large">
+				<span class="slds-avatar">
+					<abbr
+						class="slds-avatar__initials slds-icon-standard-account"
+						title="contact name"
+						>{initials}</abbr
+					>
+				</span>
+			</lightning-layout-item>
+			<lightning-layout-item padding="around-small">
+				<p>{contact.Name}</p>
+				<p>{contact.Title}</p>
+				<p>
+					<lightning-formatted-email
+						value={contact.Email}
+					></lightning-formatted-email>
+				</p>
+				<p>
+					<lightning-formatted-phone
+						value={contact.Phone}
+					></lightning-formatted-phone>
+				</p>
+			</lightning-layout-item>
+		</lightning-layout>
+	</template>
+	<template if:false={contact}><p>No contact data available.</p></template>
+</template>

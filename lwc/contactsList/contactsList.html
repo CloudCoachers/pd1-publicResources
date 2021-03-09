@@ -1,0 +1,36 @@
+<!--
+  @description       : 
+  @author            : pmartinez@cloudcoachers.com
+  @group             : 
+  @last modified on  : 09-17-2020
+  @last modified by  : pmartinez@cloudcoachers.com
+  Modifications Log 
+  Ver   Date         Author                        Modification
+  1.0   09-17-2020   pmartinez@cloudcoachers.com   Initial Version
+-->
+<template>
+	<lightning-card title="Contact List" icon-name="standard:contact">
+		<div class="slds-var-m-around_medium">
+			<lightning-input
+				type="search"
+				onchange={handleKeyChange}
+				class="slds-var-m-bottom_small"
+				label="Search"
+			></lightning-input>
+			<template if:true={contacts}>
+				<template for:each={contacts} for:item="contact">
+					<c-contact-tile class="slds-is-relative slds-media_responsive"
+						key={contact.Id}
+						contact={contact}
+					></c-contact-tile>
+				</template>
+			</template>
+			<template if:false={contacts}>
+				No contacts to display
+			</template>
+			<template if:true={error}>
+				No contacts to display
+			</template>
+		</div>
+	</lightning-card>
+</template>
